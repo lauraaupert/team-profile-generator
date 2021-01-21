@@ -5,28 +5,34 @@ const Manager = require('./manager');
 const inquirer = require("inquirer");
 
 
-const getName = () => {
-        inquirer
-        .prompt([
-            {
-              type: "input",
-              name: "name",
-              message: "What is your name?"
-            }
-          ])
-          .then(val => {
-              if (val.name) {
-                  this.name = val.name
-                  console.log(this.name)
-                  this.getId()
+// const getName = () => {
+//         inquirer
+//         .prompt([
+//             {
+//               type: "input",
+//               name: "name",
+//               message: "What is your name?"
+//             }
+//           ])
+//           .then(val => {
+//               if (val.name) {
+//                   this.name = val.name
+//                   console.log(this.name)
+//                   this.getId()
                
-              }
+//               }
     
-    });
-}
-const employee = new Employee(getName(), getId())
-//const employee = new Employee();
+//     });
+// }
+const employee = new Employee()
+const intern = new Intern()
 employee.getName()
+// var id = employee.getId()
+// var email = employee.getEmail()
+// employee.printInfo()
+// //
+//const employee = new Employee();
+// employee.getName()
 // let  = 
 
 // fs.writeFile('./Output/Team.html', (e) => {

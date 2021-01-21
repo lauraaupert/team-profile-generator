@@ -23,8 +23,8 @@ class Employee {
           .then(val => {
               if (val.name) {
                   this.name = val.name
-                  console.log(this.name)
                   this.getId()
+                  
                
               }
     
@@ -45,7 +45,7 @@ class Employee {
         .then(val => {
             if (val.id) {
                 this.id = val.id
-                console.log(this.id)
+                this.getEmail()
 
                 //this.getEmail()
             }
@@ -53,18 +53,35 @@ class Employee {
     }
 
     getEmail(){
+        inquirer
+        .prompt([
+            {
+              type: "input",
+              name: "email",
+              message: "What is your email address?"
+            }
+        ])
+        .then(val => {
+            if (val.email) {
+                this.email = val.email
+                this.printInfo()
+
+                //this.getEmail()
+            }
+        });
+
 
     }
     printInfo(){
-        console.log(`Name: ${this.name}, ID: ${this.id}`)
+        console.log(`Name: ${this.name}, ID: ${this.id}, email: ${this.email}`)
     }
 
     getRole(){
 
-    }
-}
+    };
 
-const employee = new Employee()
-employee.printInfo()
+}
+//const employee = new Employee().printInfo()
+//employee.printInfo()
 
 module.exports = Employee;

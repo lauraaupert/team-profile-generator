@@ -3,11 +3,12 @@ const Employee = require('./employee')
 class Intern extends Employee {
     constructor(school, role) {
         const emp = new Employee();
-        employee.getName()
+        //emp.getName()
         super(emp.id, emp.name, emp.email);
         this.school = school;
         this.role = role;
     };
+    
     getSchool(){
         inquirer
         .prompt([
