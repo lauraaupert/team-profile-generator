@@ -6,7 +6,6 @@ const inquirer = require("inquirer");
 
 var team = []
 
-src.buildTeam()
 
 //need to push to team array from employee class? from somewhere else
 
@@ -23,19 +22,119 @@ inquirer
             "Intern",
             "No more team members, enough humans"
             ]
+        },
+        {
+        type: "input",
+        name: "name",
+        message: "What is your name?"
+        },           
+        {
+        type: "input",
+        name: "id",
+        message: "What is your ID number?"
+        },
+        {
+        type: "input",
+        name: "email",
+        message: "What is your email address?"
         }
-    ]
-    )
+    ])
     .then((response) => {
+        switch (response.type) {
+            case "Manager":
+                inquirer
+                .prompt([
+                  {
+                    type: "input",
+                    name: "office",
+                    message: "What is your office number?"
+                  }
+                ])
+                .then((val) => {
+                  //const office = val.office;
+                  //console.log(officeNum);
+                  const manager = new Manager(
+                    response.name,
+                    response.id,
+                    response.email,
+                    val.office,
+                    response.type
+                  );                    
+                 console.log(manager)
+                  })
+                break;
+    
+            case "Intern":
+                    inquirer
+                    .prompt([
+                        {
+                            type: "input",
+                            name: "school",
+                            message: "What school do you attend?"
+                          }
+                    ])
+                    .then((val) => {
+                      //const office = val.office;
+                      //console.log(officeNum);
+                      const intern = new Intern(
+                        response.name,
+                        response.id,
+                        response.email,
+                        val.school,
+                        response.type
+                      );                    
+                     console.log(intern)
+                    })
+                    break;
+                }
+            })
+        }
+                      
+    
+
+
+    // function addMember() {
+    //     inquirer
+    //         .prompt([
+                
+    //         ])
+
+    // }
+
+
+
+    //         switch (response.type) {
+
+    //             case "Manager":
+    //                 inquirer
+    //                 .prompt([
+    //                   {
+    //                     type: "input",
+    //                     message: "Enter employee ID: ",
+    //                     name: "id"
+    //                   },
+    //                   {
+    //                     type: "input",
+    //                     message: "Enter office number: ",
+    //                     name: "office"
+    //                   }
+    //                 ])
+    //                 .then(function(res) {
+    //                   const officeNum = res.office;
+    //                   console.log(officeNum);
+    //                   const manager = new Manager(
+    //                     data.name,
+    //                     res.id,
+    //                     data.email,
+    //                     officeNum,
+    //                     "Manager"
+    //                   );                    //employee.inquire()   
+    //                  employee.push() 
+    //                 break;
+    
+    //     }
 
    //     if ()
-        switch (response.type) {
-
-            case "Manager":
-                const employee = new Employee()
-                //employee.inquire()   
-                 employee.push() 
-                break;
             //  case "Engineer":
             //     const employee = new Employee()              
             //     break;
@@ -43,16 +142,14 @@ inquirer
             //     const employee = new Employee()              
             //     break;
     
-            case "No more team members, enough humans":
-                this.quit();
+    //         case "No more team members, enough humans":
+    //             this.quit();
           
     
-    } 
+    // } 
     //   }).then(() => {team.push(employee) 
     //     console.log("team" + team)    
-    })
-    
-    } 
+   
    
     
     // quit() {
