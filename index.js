@@ -36,15 +36,15 @@ function addManager() {
         name: "office",
         message: "What is the manager's office number?"
         },
-        {
-        type: "rawlist",
-        name: "addMember",
-        message: "Do you wish to add a new team member?",
-        choices: [
-            "Yes",
-            "No",
-            ]
-        }
+        // {
+        // type: "rawlist",
+        // name: "addMember",
+        // message: "Do you wish to add a new team member?",
+        // choices: [
+        //     "Yes",
+        //     "No",
+        //     ]
+        // }
     ])
         .then((response) => {
             const manager = new Manager(
@@ -56,9 +56,10 @@ function addManager() {
                 );                    
             console.log(manager)
             team.push(manager)
-            if (response.addMember === "Yes") {
-                addMember()
-            }
+            // if (response.addMember === "Yes") {
+            //     addMember()
+            // }
+            oneMore()
         })
         //.then(addMember())
             
@@ -180,111 +181,4 @@ inquirer
         }
                       
     
-
-
-    // function addMember() {
-    //     inquirer
-    //         .prompt([
-                
-    //         ])
-
-    // }
-
-
-
-    //         switch (response.type) {
-
-    //             case "Manager":
-    //                 inquirer
-    //                 .prompt([
-    //                   {
-    //                     type: "input",
-    //                     message: "Enter employee ID: ",
-    //                     name: "id"
-    //                   },
-    //                   {
-    //                     type: "input",
-    //                     message: "Enter office number: ",
-    //                     name: "office"
-    //                   }
-    //                 ])
-    //                 .then(function(res) {
-    //                   const officeNum = res.office;
-    //                   console.log(officeNum);
-    //                   const manager = new Manager(
-    //                     data.name,
-    //                     res.id,
-    //                     data.email,
-    //                     officeNum,
-    //                     "Manager"
-    //                   );                    //employee.inquire()   
-    //                  employee.push() 
-    //                 break;
-    
-    //     }
-
-   //     if ()
-            //  case "Engineer":
-            //     const employee = new Employee()              
-            //     break;
-            // case "Intern":
-            //     const employee = new Employee()              
-            //     break;
-    
-    //         case "No more team members, enough humans":
-    //             this.quit();
-          
-    
-    // } 
-    //   }).then(() => {team.push(employee) 
-    //     console.log("team" + team)    
-   
-   
-    
-    // quit() {
-    //     console.log("\nAsk for cats next time!!");
-    //     process.exit(0);
-
-    // function add() {team.push(employee)
-    //     console.log(team)
-    //    }
-
-// const getName = () => {
-//         inquirer
-//         .prompt([
-//             {
-//               type: "input",
-//               name: "name",
-//               message: "What is your name?"
-//             }
-//           ])
-//           .then(val => {
-//               if (val.name) {
-//                   this.name = val.name
-//                   console.log(this.name)
-//                   this.getId()
-               
-//               }
-    
-//     });
-// }
 initialize()
-//Employee.prototype.Intern()
-//const employee = new Employee()
-// const intern = new Intern()
-// intern.newEmployee()
-// intern.getSchool()
-
-//employee.inquire()
-//console.log(employee)
-// var id = employee.getId()
-// var email = employee.getEmail()
-// employee.printInfo()
-// //
-//const employee = new Employee();
-// employee.getName()
-// let  = 
-
-// fs.writeFile('./Output/Team.html', (e) => {
-//     e ? console.error(e) : console.log('success')
-// })
