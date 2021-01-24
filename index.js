@@ -127,7 +127,7 @@ inquirer
                   {
                     type: "input",
                     name: "github",
-                    message: "What is the Engineer's Github profile name?"
+                    message: "What is the Engineer's Github username?"
                   }
                 ])
                 .then((val) => {
@@ -182,3 +182,5 @@ inquirer
                       
     
 initialize()
+
+// "https://github.com/" + employee.github
