@@ -239,7 +239,7 @@ const loop = () => {
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item" id="id">ID number: ${team[i].id}</li>
-      <li class="list-group-item" id="email">${team[i].email}</li>
+      <li class="list-group-item" id="email"><a href="mailto:${team[i].email}">${team[i].email}</a></li>
       ${particular}
     </ul>
   </div>
@@ -250,7 +250,6 @@ const loop = () => {
 console.log(cards)
 }
 return cards
-
 
     }
 
