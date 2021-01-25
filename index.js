@@ -19,22 +19,53 @@ function addManager() {
         {        
         type: "input",
         name: "name",
-        message: "What is the team manager's name?"
+        message: "What is the team manager's name?",
+        validate: function(name) {
+            if (name === "") {
+                return "You must enter a name."
+            } 
+            return true
+        }
+
         },
         {
         type: "input",
         name: "id",
-        message: "What is the manager's ID number?"
+        message: "What is the manager's ID number?",
+        validate: function(input) {
+            if (isNaN(input)) {
+                return "ID must be a number."
+            }
+            return true
+        }
+            
+            
         },
+
+        
         {
         type: "input",
         name: "email",
-        message: "What is the manager's email address?"
+        message: "What is the manager's email address?",
+        validate: function(email) {
+            var re = /\S+@\S+\.\S+/
+            if (re.test(email) === true) {
+                return true
+            }
+                return "Please enter a valid email address."    
+        }
         },
         {
         type: "input",
         name: "office",
-        message: "What is the manager's office number?"
+        message: "What is the manager's office number?",
+        validate: function(input) {
+            if (isNaN(input)) {
+                return "This must be a number."
+            }
+            return true
+        }
+
         },
         // {
         // type: "rawlist",
@@ -106,17 +137,38 @@ inquirer
         {
         type: "input",
         name: "name",
-        message: "What is the employee's name?"
+        message: "What is the employee's name?",
+        validate: function(name) {
+            if (name === "") {
+                return "You must enter a name."
+            } 
+            return true
+        }
         },           
         {
         type: "input",
         name: "id",
-        message: "What is this employee's ID number?"
+        message: "What is this employee's ID number?",
+        validate: function(input) {
+            if (isNaN(input)) {
+                return "ID must be a number."
+            }
+            return true
+        }
         },
         {
         type: "input",
         name: "email",
-        message: "What is the employee's email address?"
+        message: "What is the employee's email address?",
+        validate: function(email) {
+            var re = /\S+@\S+\.\S+/
+            if (re.test(email) === true) {
+                return true
+            }
+                return "Please enter a valid email address."    
+        }
+
+    
         },
     ])
     .then((response) => {
@@ -127,7 +179,14 @@ inquirer
                   {
                     type: "input",
                     name: "github",
-                    message: "What is the Engineer's Github username?"
+                    message: "What is the Engineer's Github username?",
+                    validate: function(github) {
+                        if (github === "") {
+                            return "You must enter a username."
+                        } 
+                        return true
+                    }
+            
                   }
                 ])
                 .then((val) => {
@@ -155,7 +214,14 @@ inquirer
                         {
                             type: "input",
                             name: "school",
-                            message: "What school do you attend?"
+                            message: "What school do you attend?",
+                            validate: function(school) {
+                                if (school === "") {
+                                    return "You must enter a school."
+                                } 
+                                return true
+                            }
+                    
                           }
                     ])
                     .then((val) => {
