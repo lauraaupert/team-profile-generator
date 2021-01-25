@@ -196,7 +196,7 @@ inquirer
                     response.name,
                     response.id,
                     response.email,
-                    val.github,
+                    "https://github.com/" + val.github,
                     response.type
                   );                    
                  console.log(engineer)
