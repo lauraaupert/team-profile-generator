@@ -6,9 +6,6 @@ const inquirer = require("inquirer");
 
 var team = []
 
-
-//need to push to team array from employee class? from somewhere else
-
 function initialize() {
     addManager()
 }
@@ -67,15 +64,6 @@ function addManager() {
         }
 
         },
-        // {
-        // type: "rawlist",
-        // name: "addMember",
-        // message: "Do you wish to add a new team member?",
-        // choices: [
-        //     "Yes",
-        //     "No",
-        //     ]
-        // }
     ])
         .then((response) => {
             const manager = new Manager(
@@ -87,13 +75,8 @@ function addManager() {
                 );                    
             console.log(manager)
             team.push(manager)
-            // if (response.addMember === "Yes") {
-            //     addMember()
-            // }
             oneMore()
-        })
-        //.then(addMember())
-            
+        })            
 }
 
 function oneMore() {
@@ -114,13 +97,8 @@ function oneMore() {
         } else {
             console.log(team)
         }
-
     })
 }
-
-
-
-     
 
 function addMember() {
 inquirer
@@ -167,8 +145,6 @@ inquirer
             }
                 return "Please enter a valid email address."    
         }
-
-    
         },
     ])
     .then((response) => {
@@ -186,47 +162,37 @@ inquirer
                         } 
                         return true
                     }
-            
                   }
                 ])
                 .then((val) => {
-                  //const office = val.office;
-                  //console.log(officeNum);
-                  const engineer = new Engineer(
-                    response.name,
-                    response.id,
-                    response.email,
-                    "https://github.com/" + val.github,
-                    response.type
-                  );                    
-                 console.log(engineer)
-                 team.push(engineer)
-                 oneMore()
-                 })
-                
-    
-            
+                    const engineer = new Engineer(
+                        response.name,
+                        response.id,
+                        response.email,
+                        "https://github.com/" + val.github,
+                        response.type
+                    );                    
+                    team.push(engineer)
+                    oneMore()
+                })
                 break;
     
             case "Intern":
-                    inquirer
+                inquirer
                     .prompt([
                         {
-                            type: "input",
-                            name: "school",
-                            message: "What school do you attend?",
-                            validate: function(school) {
-                                if (school === "") {
-                                    return "You must enter a school."
-                                } 
+                        type: "input",
+                        name: "school",
+                        message: "What school do you attend?",
+                        validate: function(school) {
+                            if (school === "") {
+                                return "You must enter a school."
+                            } 
                                 return true
                             }
-                    
-                          }
+                        }
                     ])
                     .then((val) => {
-                      //const office = val.office;
-                      //console.log(officeNum);
                       const intern = new Intern(
                         response.name,
                         response.id,
@@ -238,15 +204,11 @@ inquirer
                      team.push(intern)
                         oneMore()
                     })
-                    
-                    break;
-                }
-
-            })
-            
+                break;
         }
+    })
+}
                       
     
 initialize()
 
-// "https://github.com/" + employee.github
