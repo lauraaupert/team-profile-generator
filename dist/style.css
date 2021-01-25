@@ -1,0 +1,15 @@
+.header {
+    background-color: grey;
+    padding: 30px;
+}
+.team {
+    text-align: center;
+}
+.start-cards {
+    margin: 20px;
+    justify-content: center;
+}
+.card {
+    margin: 20px;
+    background-color: lightgray;
+}

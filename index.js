@@ -217,8 +217,8 @@ const loop = () => {
     var bodyHTML = `
     <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h4 class="card-title" id="name">${team[i].name}</h4>
-      <h5 class="card-text" id="role">${team[i].role}</h5>
+      <h2 class="card-title" id="name">${team[i].name}</h2>
+      <h3 class="card-text" id="role">${team[i].role}</h3>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item" id="id">${team[i].id}</li>
