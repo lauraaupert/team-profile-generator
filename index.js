@@ -211,24 +211,42 @@ inquirer
 
 
 const loop = () => {
-    var cards = []
+    //var cards = []
+    var cards = ""
     for (i = 0; i < team.length; i++) {
+        if (team[i].role === "Engineer") {
+            var particular = `
+            <li class="list-group-item" id="particular"><a href="${team[i].particular}" target="_blank" class="card-link">${team[i].name}'s GitHub</a></li>
+            `
+        } else if (team[i].role === "Manager") {
+            var particular = `
+            <li class="list-group-item" id="particular">Office Number: ${team[i].particular}</li>
+            `
+        } else if (team[i].role === "Intern") {
+            var school = team[i].particular.charAt(0).toUpperCase() + team[i].particular.slice(1)
+            var particular = `
+            <li class="list-group-item" id="particular">School: ${school}</li>
+            `
+        }
+
+        var name = team[i].name.charAt(0).toUpperCase() + team[i].name.slice(1)
         
     var bodyHTML = `
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 18rem;  margin: 20px; padding-bottom: 20px; background-color: lightgray;">
     <div class="card-body">
-      <h2 class="card-title" id="name">${team[i].name}</h2>
+      <h2 class="card-title" id="name">${name}</h2>
       <h3 class="card-text" id="role">${team[i].role}</h3>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item" id="id">${team[i].id}</li>
+      <li class="list-group-item" id="id">ID number: ${team[i].id}</li>
       <li class="list-group-item" id="email">${team[i].email}</li>
-      <li class="list-group-item" id="particular">${team[i].particular}</li>
+      ${particular}
     </ul>
   </div>
   `
+  cards += bodyHTML
 //console.log(bodyHTML)
-cards.push(bodyHTML)
+//cards.push(bodyHTML)
 console.log(cards)
 }
 return cards
@@ -245,19 +263,32 @@ return cards
 const createHTML = () => {
     return `
     <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <title>Team</title>
-</head>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="./dist/style.css">
+        <title>Team</title>
+    </head>
+    <body>
+    <div class="container">
+        <div class="row">
+            <div class="header" style="background-color: grey; padding: 30px;">
+                <h1 class="team" style="text-align: center;">Team</h1>
+            </div>
+        </div>
+            
+    <div class="row start-cards" style="justify-content: center;">
+    
     `
 }
 const endHTML =() => {
     return `
+    </div>
+    </div>
     </body>
-</html>
+    </html>
     `
 }
 
