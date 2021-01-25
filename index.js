@@ -3,6 +3,7 @@ const Intern = require('./lib/intern')
 const Engineer = require('./lib/engineer');
 const Manager = require('./lib/manager');
 const inquirer = require("inquirer");
+const fs = require("fs")
 
 var team = []
 
@@ -35,11 +36,7 @@ function addManager() {
             }
             return true
         }
-            
-            
         },
-
-        
         {
         type: "input",
         name: "email",
@@ -62,7 +59,6 @@ function addManager() {
             }
             return true
         }
-
         },
     ])
         .then((response) => {
@@ -96,6 +92,7 @@ function oneMore() {
             addMember()
         } else {
             console.log(team)
+            console.log(loop())        
         }
     })
 }
@@ -208,7 +205,69 @@ inquirer
         }
     })
 }
+
+// team.forEach(createCards)
+
+// function createCards() {
+//     let html =  + table() + installation() + usage() + contributing() + testing() + questions() + license()
+
+//     fs.writeFile('./Output/README.md', total, (e) => {
+//         e ? console.error(e) : console.log('success')
+//     })
+
+function loop() {
+    for (i = 0; i < team.length; i++) {
+        
+    var bodyHTML = `
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h4 class="card-title" id="name">${team[i].name}</h4>
+      <h5 class="card-text" id="role">${team[i].role}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" id="id">${team[i].id}</li>
+      <li class="list-group-item" id="email">${team[i].email}</li>
+      <li class="list-group-item" id="particular">${team[i].particular}</li>
+    </ul>
+  </div>
+  `
+console.log(bodyHTML)
+}
+
+
+    }
+
+    
+
+
+
+ 
+
+const createHTML = () => {
+    var startHTML = `
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Team</title>
+</head>
+    `
+    var endHTML = `
+    </body>
+</html>
+    `
+}
+
+
+
                       
     
 initialize()
 
+
+{/* <div class="card-body">
+<a href="#" class="card-link">Card link</a>
+<a href="#" class="card-link">Another link</a>
+</div> */}
