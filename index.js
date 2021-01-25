@@ -1,4 +1,3 @@
-const Employee = require("./lib/employee");
 const Intern = require('./lib/intern')
 const Engineer = require('./lib/engineer');
 const Manager = require('./lib/manager');
@@ -24,7 +23,6 @@ function addManager() {
             } 
             return true
         }
-
         },
         {
         type: "input",
@@ -69,7 +67,6 @@ function addManager() {
                 response.particular,
                 "Manager"
                 );                    
-            console.log(manager)
             team.push(manager)
             oneMore()
         })            
@@ -91,8 +88,6 @@ function oneMore() {
         if (response.addMember === "Yes") {
             addMember()
         } else {
-            console.log(team)
-            console.log(loop())    
             createCards()    
         }
     })
@@ -181,7 +176,7 @@ inquirer
                         {
                         type: "input",
                         name: "particular",
-                        message: "What school do you attend?",
+                        message: "What school does the employee attend?",
                         validate: function(school) {
                             if (school === "") {
                                 return "You must enter a school."
@@ -198,7 +193,6 @@ inquirer
                         val.particular,
                         response.type
                       );                    
-                     console.log(intern)
                      team.push(intern)
                         oneMore()
                     })
@@ -207,11 +201,7 @@ inquirer
     })
 }
 
-
-
-
 const loop = () => {
-    //var cards = []
     var cards = ""
     for (i = 0; i < team.length; i++) {
         if (team[i].role === "Engineer") {
@@ -229,7 +219,7 @@ const loop = () => {
             `
         }
 
-        var name = team[i].name.charAt(0).toUpperCase() + team[i].name.slice(1)
+    var name = team[i].name.charAt(0).toUpperCase() + team[i].name.slice(1)
         
     var bodyHTML = `
     <div class="card" style="width: 18rem;  margin: 20px; padding-bottom: 20px; background-color: lightgray;">
@@ -244,20 +234,11 @@ const loop = () => {
     </ul>
   </div>
   `
-  cards += bodyHTML
-//console.log(bodyHTML)
-//cards.push(bodyHTML)
-console.log(cards)
-}
-return cards
-
+    cards += bodyHTML
+    console.log(cards)
     }
-
-    
-
-
-
- 
+return cards
+}
 
 const createHTML = () => {
     return `
@@ -279,13 +260,12 @@ const createHTML = () => {
         </div>
             
     <div class="row start-cards" style="justify-content: center;">
-    
     `
 }
 const endHTML =() => {
     return `
-    </div>
-    </div>
+        </div>
+        </div>
     </body>
     </html>
     `
@@ -299,12 +279,4 @@ function createCards() {
     })
 }
 
-                      
-    
 initialize()
-
-
-{/* <div class="card-body">
-<a href="#" class="card-link">Card link</a>
-<a href="#" class="card-link">Another link</a>
-</div> */}

@@ -10,7 +10,6 @@ describe("Employee", () => {
             expect(employee.id).toEqual("720");
             expect(employee.email).toEqual("penguin@arctic.com")
             expect(employee.role).toEqual("Employee")
-
         })
     })
     describe("Constructor", () => {
@@ -20,14 +19,12 @@ describe("Employee", () => {
             const id = "720";
             const email = "penguin@arctic.com";
             const role = "Manager"
-
             const employee = new Employee(name, id, email, role)
             
             expect(employee.name).toEqual(name);
             expect(employee.id).toEqual(id);
             expect(employee.email).toEqual(email)
             expect(employee.role).toEqual(role)
-
         })
     })
 
@@ -49,6 +46,7 @@ describe("Employee", () => {
             const employee = new Employee("Max", test)
             expect(employee.getId()).toEqual(test)
         })
+    })
 
     describe("getEmail", () => {
         it("should get email through method getEmail", () => {
@@ -57,7 +55,6 @@ describe("Employee", () => {
 
             expect(employee.getEmail()).toEqual(test)
         })
-
     })
     describe("getRole", () => {
         it("should get role through method getRole", () => {
@@ -72,7 +69,5 @@ describe("Employee", () => {
 
             expect(employee.getRole()).toEqual("Employee")
         })
-
-    })
     })
 })

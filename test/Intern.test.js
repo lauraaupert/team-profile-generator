@@ -8,8 +8,6 @@ describe("Intern", () => {
             
             expect(intern.getSchool()).toEqual(test)
         })
-
-
     })
     describe("getRole", () => {
         it("should return role as intern", () => {
@@ -17,9 +15,5 @@ describe("Intern", () => {
             
             expect(intern.getRole()).toEqual("Intern")
         })
-
-
-})
-
- 
+    })
 })

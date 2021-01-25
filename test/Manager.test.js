@@ -8,7 +8,6 @@ describe("Manager", () => {
             
             expect(manager.getOffice()).toEqual(test)
         })
-    
     })
     describe("getRole", () => {
         it("should return role as manager", () => {
@@ -16,8 +15,5 @@ describe("Manager", () => {
             
             expect(manager.getRole()).toEqual("Manager")
         })
-
-
     })
-
 })
