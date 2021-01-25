@@ -25,23 +25,28 @@ I WANT to generate a webpage that displays my team's basic info\
 SO THAT I have quick access to their emails and GitHub profiles
 
 GIVEN a command-line application that accepts user input\
-WHEN I am prompted for my team members and their information<br /> 
-THEN an HTML file is generated that displays a nicely formatted team roster based on user input <br />
-WHEN I click on an email address in the HTML 
-THEN my default email program opens and populates the TO field of the email with the address 
-WHEN I click on the GitHub username
-THEN that GitHub profile opens in a new tab 
-WHEN I start the application
-THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-WHEN I enter the team manager’s name, employee ID, email address, and office number
-THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
-WHEN I select the engineer option
-THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
-WHEN I select the intern option
-THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-WHEN I decide to finish building my team
-THEN I exit the application, and the HTML is generated
+WHEN I am prompted for my team members and their information\ 
+THEN an HTML file is generated that displays a nicely formatted team roster based on user input\
+WHEN I click on an email address in the HTML \
+THEN my default email program opens and populates the TO field of the email with the address \
+WHEN I click on the GitHub username\
+THEN that GitHub profile opens in a new tab \
+WHEN I start the application\
+THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number\
+WHEN I enter the team manager’s name, employee ID, email address, and office number\
+THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team\
+WHEN I select the engineer option\
+THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu\
+WHEN I select the intern option\
+THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu\
+WHEN I decide to finish building my team\
+THEN I exit the application, and the HTML is generated\
 
+![image](https://user-images.githubusercontent.com/73617474/105770941-dbc1a480-5f2d-11eb-8d43-468731b5604d.png)
+![image](https://user-images.githubusercontent.com/73617474/105771030-f98f0980-5f2d-11eb-9e11-a39b8cc78ed6.png)
+![image](https://user-images.githubusercontent.com/73617474/105771088-0875bc00-5f2e-11eb-8911-b917e2f3ad02.png)
+![image](https://user-images.githubusercontent.com/73617474/105771357-6f937080-5f2e-11eb-90f3-5a23495aa0c2.png)
+![image](https://user-images.githubusercontent.com/73617474/105771450-92258980-5f2e-11eb-9928-d64d4bf30e6b.png)
 
 ## INSTALLATION <a name="INSTALLATION"></a>
 
