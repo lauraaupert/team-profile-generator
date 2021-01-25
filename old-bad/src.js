@@ -1,11 +1,11 @@
 const inquirer = require("inquirer");
-const Employee = require("./lib/employee");
+const Employee = require("../lib/employee");
 
 
 
 class Team {
     constructor(){
-        this.employees = [new Employee];
+        this.employees = [new Employee()];
     }
 
 buildTeam() {

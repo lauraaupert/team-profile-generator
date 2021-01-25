@@ -51,7 +51,7 @@ function addManager() {
         },
         {
         type: "input",
-        name: "office",
+        name: "particular",
         message: "What is the manager's office number?",
         validate: function(input) {
             if (isNaN(input)) {
@@ -66,7 +66,7 @@ function addManager() {
                 response.name,
                 response.id,
                 response.email,
-                response.office,
+                response.particular,
                 "Manager"
                 );                    
             console.log(manager)
@@ -92,7 +92,8 @@ function oneMore() {
             addMember()
         } else {
             console.log(team)
-            console.log(loop())        
+            console.log(loop())    
+            createCards()    
         }
     })
 }
@@ -151,7 +152,7 @@ inquirer
                 .prompt([
                   {
                     type: "input",
-                    name: "github",
+                    name: "particular",
                     message: "What is the Engineer's Github username?",
                     validate: function(github) {
                         if (github === "") {
@@ -166,7 +167,7 @@ inquirer
                         response.name,
                         response.id,
                         response.email,
-                        "https://github.com/" + val.github,
+                        "https://github.com/" + val.particular,
                         response.type
                     );                    
                     team.push(engineer)
@@ -179,7 +180,7 @@ inquirer
                     .prompt([
                         {
                         type: "input",
-                        name: "school",
+                        name: "particular",
                         message: "What school do you attend?",
                         validate: function(school) {
                             if (school === "") {
@@ -194,7 +195,7 @@ inquirer
                         response.name,
                         response.id,
                         response.email,
-                        val.school,
+                        val.particular,
                         response.type
                       );                    
                      console.log(intern)
@@ -206,16 +207,11 @@ inquirer
     })
 }
 
-// team.forEach(createCards)
 
-// function createCards() {
-//     let html =  + table() + installation() + usage() + contributing() + testing() + questions() + license()
 
-//     fs.writeFile('./Output/README.md', total, (e) => {
-//         e ? console.error(e) : console.log('success')
-//     })
 
-function loop() {
+const loop = () => {
+    var cards = []
     for (i = 0; i < team.length; i++) {
         
     var bodyHTML = `
@@ -231,8 +227,11 @@ function loop() {
     </ul>
   </div>
   `
-console.log(bodyHTML)
+//console.log(bodyHTML)
+cards.push(bodyHTML)
+console.log(cards)
 }
+return cards
 
 
     }
@@ -244,7 +243,7 @@ console.log(bodyHTML)
  
 
 const createHTML = () => {
-    var startHTML = `
+    return `
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -254,13 +253,21 @@ const createHTML = () => {
     <title>Team</title>
 </head>
     `
-    var endHTML = `
+}
+const endHTML =() => {
+    return `
     </body>
 </html>
     `
 }
 
+function createCards() {
+    let html =  createHTML() + loop() + endHTML()
 
+    fs.writeFile('./dist/team.html', html, (e) => {
+        e ? console.error(e) : console.log('success')
+    })
+}
 
                       
     
